@@ -1,0 +1,2 @@
+#main,#root,body,html{height:100%;width:100%;padding:0;margin:0}body{background-color:#1e1e1e}#main{display:flex;flex-direction:column;align-items:center;justify-content:center}.value{margin:5px}.value>label{padding:5px}h2,label,p{font-family:"Arial";color:#dcdcdc}#error,#result{height:17px;margin:5px}#values{display:flex;flex-direction:row;align-items:center}input{width:135px;background-color:#3c3c3c}button,input{color:#dcdcdc}button{margin-top:5px;background-color:transparent;border:1px solid #dcdcdc}h2{font-size:1.35em}
+/*# sourceMappingURL=main.5ef7a37f.chunk.css.map */

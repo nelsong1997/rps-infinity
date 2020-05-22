@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/rps-infinity/static/css/main.5ef7a37f.chunk.css",
+    "main.js": "/rps-infinity/static/js/main.9b06e626.chunk.js",
+    "main.js.map": "/rps-infinity/static/js/main.9b06e626.chunk.js.map",
+    "runtime-main.js": "/rps-infinity/static/js/runtime-main.862ebe0d.js",
+    "runtime-main.js.map": "/rps-infinity/static/js/runtime-main.862ebe0d.js.map",
+    "static/js/2.a8f54189.chunk.js": "/rps-infinity/static/js/2.a8f54189.chunk.js",
+    "static/js/2.a8f54189.chunk.js.map": "/rps-infinity/static/js/2.a8f54189.chunk.js.map",
+    "index.html": "/rps-infinity/index.html",
+    "precache-manifest.47fd81d7ffe5848879a543c5f4bac8fd.js": "/rps-infinity/precache-manifest.47fd81d7ffe5848879a543c5f4bac8fd.js",
+    "service-worker.js": "/rps-infinity/service-worker.js",
+    "static/css/main.5ef7a37f.chunk.css.map": "/rps-infinity/static/css/main.5ef7a37f.chunk.css.map",
+    "static/js/2.a8f54189.chunk.js.LICENSE.txt": "/rps-infinity/static/js/2.a8f54189.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.862ebe0d.js",
+    "static/js/2.a8f54189.chunk.js",
+    "static/css/main.5ef7a37f.chunk.css",
+    "static/js/main.9b06e626.chunk.js"
+  ]
+}
