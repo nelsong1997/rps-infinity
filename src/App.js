@@ -8,11 +8,13 @@ class App extends React.Component {
             value0: "",
             value1: "",
             error: "",
-            calculated: false
+            calculated: false,
+            enterPressed: false
         }
         this.handleInputChange = this.handleInputChange.bind(this);
         this.calculate = this.calculate.bind(this);
         this.reset = this.reset.bind(this);
+        this.handleKeyDown = this.handleKeyDown.bind(this);
     }
 
     calculate() {
@@ -75,11 +77,10 @@ class App extends React.Component {
                 if (valueB.length > 1) valueB = deleteAtIndex(valueB, indexB)
                 indexA = (valueB.charCodeAt(indexB)-96) % valueA.length
                 indexB = (valueA.charCodeAt(indexA)-96) % valueB.length
-                console.log(result, valueA, valueB)
             }
             if (smallValue0!==valueAstart) result = (result + 1)%2 //so results stay the same if you switch values
             result = result.toString()
-            this.setState({calculated: result})
+            this.setState({calculated: result, enterPressed: true})
         }
     }
 
@@ -89,7 +90,8 @@ class App extends React.Component {
                 value0: "",
                 value1: "",
                 error: "",
-                calculated: false
+                calculated: false,
+                enterPressed: false
             }
         )
     }
@@ -111,6 +113,12 @@ class App extends React.Component {
         if (valueIsGood) this.setState({[property]: value, error: ""})
     }
 
+    handleKeyDown(e) {
+        if (e.keyCode!==13 || this.state.enterPressed) return
+        if (this.state.calculated) this.reset()
+        else this.calculate()
+    }
+
     render() {
         if (!this.state.calculated) {
             return (
@@ -119,12 +127,12 @@ class App extends React.Component {
                     <div id="values">
                         <input
                             type="text" onChange={this.handleInputChange} maxLength="16" name="value0"
-                            value={this.state.value0} className="value"
+                            value={this.state.value0} className="value" onKeyDown={this.handleKeyDown}
                         />
                         <label>vs</label>
                         <input
                             type="text" onChange={this.handleInputChange} maxLength="16" name="value1"
-                            value={this.state.value1} className="value"
+                            value={this.state.value1} className="value" onKeyDown={this.handleKeyDown}
                         />
                     </div>
                     <label id="error" style={{color: "red"}}><strong>{this.state.error}</strong></label>
@@ -134,13 +142,16 @@ class App extends React.Component {
         } else {
             let value0Style = {}
             let value1Style = {}
-            let resultMessage
+            let winningWord
+            let losingWord
             if (this.state.calculated==="0") {
                 value0Style = {border: "2px solid red"}
-                resultMessage = `${this.state.value0} beats ${this.state.value1}`
+                winningWord = this.state.value0
+                losingWord = this.state.value1
             } else if (this.state.calculated==="1") {
                 value1Style = {border: "2px solid red"}
-                resultMessage = `${this.state.value1} beats ${this.state.value0}`
+                winningWord = this.state.value1
+                losingWord = this.state.value0
             }
             return (
                 <div id="main">
@@ -153,7 +164,7 @@ class App extends React.Component {
                             <label>{this.state.value1}</label>
                         </div>
                     </div>
-                    <label id="result">{resultMessage}</label>
+                    <label id="result"><strong style={{color: "red"}}>"{winningWord}"</strong> beats <strong>"{losingWord}"</strong>!</label>
                     <button onClick={this.reset}>try again</button>
                 </div>
             )
