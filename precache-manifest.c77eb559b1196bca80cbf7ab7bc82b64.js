@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7d5d0a46597f7321bf72fdcbe1472815",
+    "revision": "8d94e910dc2c9fef437ff8a5ee43f552",
     "url": "/rps-infinity/index.html"
   },
   {
